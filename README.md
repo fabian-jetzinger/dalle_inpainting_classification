@@ -15,3 +15,11 @@ Using DALL-E's inpainting feature, images should be adapted (i.e. inserting a wo
 (3) Furthermore, a microservice is manually deployed on the Google Cloud Platform. This microservice consists of a REST interface that receives an image as a parameter and returns the current model's class prediction for that image.
 
 ![Flow Chart](flow_diagram.png)
+
+## Final Presentation
+The final presentation of the project will include some slides on the implementation of the project and lessons learned along the way.
+
+Additionally, a live demo will feature the following demonstrations:
+* a new commit being pushed and the resulting doctest results
+* a new tag being pushed and the resulting new docker image
+* Google Cloud Platform microservice image classification
