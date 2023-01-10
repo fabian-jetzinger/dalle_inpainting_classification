@@ -12,7 +12,7 @@ Using DALL-E's inpainting feature, images should be adapted (i.e. inserting a wo
 
 (2) When developers make changes to this Dockerfile or the poetry environment, a git tag containing a version number can be manually pushed. Upon pushing this tag, the docker container is automatically rebuilt, taking into account all changes to the Dockerfile and the poetry environment. 
 
-(3) Furthermore, a microservice is manually deployed on the Google Cloud Platform. This microservice consists of a REST interface that receives an image as a parameter and returns the current model's class prediction for that image.
+(3) Furthermore, when a new tag is pushed, a microservice is automatically deployed on the Google Cloud Platform. This microservice consists of a REST interface that receives an image as a parameter and returns the current model's class prediction for that image.
 
 ![Flow Chart](flow_diagram.png)
 
