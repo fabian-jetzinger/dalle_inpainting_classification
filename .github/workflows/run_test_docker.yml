@@ -1,11 +1,10 @@
-name: Build and publish Main-Docker image
+name: Build and publish Test-Docker image
 
 on:
-  push:
-    branches:
-      - 'main'
-    tags:
-      - v**.**
+  workflow_run:
+    workflows: [Build and publish Main-Docker image]
+    types:
+      - completed
 
 jobs:
   push_to_registry:
@@ -32,5 +31,5 @@ jobs:
         with:
           context: .
           push: true
-          file: base-dockerfile
-          tags: fabianjetzinger/dalle-image-classification:base-latest
+          file: test-dockerfile
+          tags: fabianjetzinger/dalle-image-classification:test-latest
