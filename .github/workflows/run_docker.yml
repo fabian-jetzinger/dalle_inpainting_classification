@@ -63,4 +63,4 @@ jobs:
 
   call_doctest_workflow:
     needs: push_test_to_registry
-    uses: run_doctests.yml
+    uses: .github/workflows/run_doctests.yml
