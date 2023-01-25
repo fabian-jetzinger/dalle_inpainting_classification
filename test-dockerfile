@@ -1,4 +1,3 @@
-# TODO: replace path, probably dockerhub?
-FROM address_of_base_image/base:latest
+FROM fabianjetzinger/dalle-image-classification:base-latest
 
 RUN poetry install --no-root

@@ -1,8 +1,8 @@
-name: Build and publish Test-Docker image
+name: build-test-image
 
 on:
   workflow_run:
-    workflows: [Build and publish Main-Docker image]
+    workflows: [build-main-image]
     types:
       - completed
 
