@@ -6,6 +6,14 @@ Project Type A: Architectural Design Prototype -> requires a working live demons
 
 Using DALL-E's inpainting feature, images should be adapted (i.e. inserting a wolf into a picture of a forest). Then, a deep learning model (most likely a pretrained image classification model) should be fine-tuned to differentiate between original, unedited images and images that were changed with DALL-E inpainting.
 
+## Repository structure
+
+Source code in /src
+Test stuff in /test (apart from doctests directly found in source code)
+Save newly trained model in /local_models, which will not be added to git
+Copy the best model from /local_models to /models to deploy it in the microservice
+
+
 ## CLC3  Project Proposal
 
 (1) A CI/CD pipeline should be created which handles the automatic execution of Python doctests whenever a new commit is pushed to the remote. The tests are run within a docker container built from a Dockerfile that is part of the repository. 
@@ -16,7 +24,7 @@ Using DALL-E's inpainting feature, images should be adapted (i.e. inserting a wo
 
 ![Flow Chart](flow_diagram.png)
 
-## CLC3 Final Presentation
+### CLC3 Final Presentation
 The final presentation of the project will include some slides on the implementation of the project and lessons learned along the way.
 
 Additionally, a live demo will feature the following demonstrations:
