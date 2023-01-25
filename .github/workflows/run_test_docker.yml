@@ -2,7 +2,7 @@ name: build-test-image
 
 on:
   workflow_run:
-    workflows: [build-main-image]
+    workflows: ["build-main-image"]
     types:
       - completed
 
