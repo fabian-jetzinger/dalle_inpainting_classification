@@ -1,6 +1,11 @@
 name: run-tests
 
-on: [push]
+on:
+  push:
+    tags-ignore:
+      - v**.**
+  workflow_call:
+
 
 jobs:
   build:
