@@ -8,10 +8,13 @@ Using DALL-E's inpainting feature, images should be adapted (i.e. inserting a wo
 
 ## Repository structure
 
-Source code in /src
-Test stuff in /test (apart from doctests directly found in source code)
-Save newly trained model in /local_models, which will not be added to git
-Copy the best model from /local_models to /models to deploy it in the microservice
+Source code in ```/src```
+
+Test stuff in ```/test``` (apart from doctests directly found in source code)
+
+Save newly trained model in ```/local_models```, which will not be added to git
+
+Copy the best model from ```/local_models``` to ```/models``` to deploy it in the microservice
 
 
 ## CLC3  Project Proposal
