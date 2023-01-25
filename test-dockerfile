@@ -1,0 +1,4 @@
+# TODO: replace path, probably dockerhub?
+FROM address_of_base_image/base:latest
+
+RUN poetry install --no-root
