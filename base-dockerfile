@@ -10,5 +10,7 @@ COPY pyproject.toml poetry.lock .
 RUN pip install setuptools --upgrade
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev --no-root
+RUN poetry run poe force-torch-cpu
+RUN poetry run poe force-torchvision-cpu
 
 COPY . /src
