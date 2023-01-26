@@ -177,7 +177,7 @@ python-versions = ">=3.7"
 name = "pastel"
 version = "0.2.1"
 description = "Bring colors to your terminal."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -209,7 +209,7 @@ testing = ["pytest", "pytest-benchmark"]
 name = "poethepoet"
 version = "0.18.1"
 description = "A task runner that works well with poetry."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -338,7 +338,7 @@ python-versions = ">=3.6"
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -372,7 +372,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "96b66143da30ee6aabe63c9a938ae5275f5d5ca8369ed610c286a5036a2884da"
+content-hash = "c5d7426f8812856478128dd6a728ca64ff97c2afbe5f43f14114d69ebd07e599"
 
 [metadata.files]
 attrs = [
