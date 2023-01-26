@@ -1,0 +1,7 @@
+FROM fabianjetzinger/dalle-image-classification:base-latest
+
+EXPOSE 8888
+
+ENTRYPOINT ["python"]
+
+CMD ["/src/microservice/image_classifier_service.py"]
