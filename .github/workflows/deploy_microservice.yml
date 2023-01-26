@@ -19,10 +19,7 @@ name: build-and-deploy-service
 #    workflows: [build-docker-images]
 #    types:
 #      - completed
-on:
-  push:
-    tags:
-      - v**.**
+on: [push]
 
 env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
