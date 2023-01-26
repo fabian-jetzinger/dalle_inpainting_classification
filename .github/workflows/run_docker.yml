@@ -60,3 +60,7 @@ jobs:
           push: true
           file: test-dockerfile
           tags: fabianjetzinger/dalle-image-classification:test-latest
+
+  call_doctest_workflow:
+    needs: push_test_to_registry
+    uses: ./.github/workflows/run_doctests.yml
