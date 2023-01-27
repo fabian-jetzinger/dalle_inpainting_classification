@@ -64,12 +64,12 @@ jobs:
         context: .
         file: service-dockerfile
         push: true
-        tags: 'eu.gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}'
+        tags: fabianjetzinger/dalle-image-classification:app-latest
   
     - name: Deploy to Cloud Run
       run: |-
         gcloud run deploy ${{ env.SERVICE }} \
           --region ${{ env.REGION }} \
-          --image eu.gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }} \
+          --image fabianjetzinger/dalle-image-classification:app-latest \
           --platform "managed" \
           --quiet
