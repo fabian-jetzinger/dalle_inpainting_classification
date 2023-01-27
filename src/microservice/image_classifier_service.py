@@ -5,6 +5,7 @@ import torch
 from PIL import Image
 from flask import Flask, request
 from torchvision import transforms
+from urllib.request import urlopen
 
 app = Flask(__name__)
 
@@ -16,11 +17,10 @@ def index():
     return 'API Works!'
 
 
-@app.route('/classify', methods=['POST'])
+@app.route('/classify', methods=['GET'])
 def classify():
-    img_url = request.get_json()
-    response = requests.get(img_url)
-    img = Image.open(BytesIO(response.content))
+    img_url = request.args.get('img_url')
+    img = Image.open(requests.get(img_url, stream=True).raw)
     model = torch.hub.load("chenyaofo/pytorch-cifar-models", "cifar10_resnet20", pretrained=True)
     model.eval()
     convert_tensor = transforms.ToTensor()
@@ -29,3 +29,6 @@ def classify():
     top10 = torch.topk(response, 10)
     scores = {CIFAR_LABELS[idx]: top10.values.tolist()[0][idx] for idx in top10.indices.tolist()[0]}
     return scores
+
+
+app.run(host='0.0.0.0', port=8000)
