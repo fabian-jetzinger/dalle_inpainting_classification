@@ -24,7 +24,7 @@ on: [push]
 env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
   REGION: europe-west3-b
-  SERVICE: inpainting-classification
+  SERVICE: dalle-image-classification:base-latest
 
 jobs:
   deploy:
