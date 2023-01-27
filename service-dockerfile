@@ -1,7 +1,3 @@
 FROM fabianjetzinger/dalle-image-classification:base-latest
 
-EXPOSE 8888
-
-ENTRYPOINT ["python"]
-
-CMD ["/src/microservice/image_classifier_service.py"]
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 /src/microservice/image_classifier_service:app
