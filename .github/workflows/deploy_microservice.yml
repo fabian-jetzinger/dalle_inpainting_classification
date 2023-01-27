@@ -63,8 +63,8 @@ jobs:
       with:
         context: .
         file: service-dockerfile
-        push: 'eu.gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}'
-        tags: 'eu.gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}'
+        push: 'eu.gcr.io/'${{ env.PROJECT_ID }}/${{ env.SERVICE }}
+        tags: 'eu.gcr.io/'${{ env.PROJECT_ID }}/${{ env.SERVICE }}
   
     - name: Deploy to Cloud Run
       run: |-
