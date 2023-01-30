@@ -15,7 +15,7 @@ CIFAR_LABELS = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 
 
 @app.route('/')
 def index():
-    return 'API Works!'
+    return 'API Works 1!'
 
 
 @app.route('/classify', methods=['GET'])
