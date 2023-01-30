@@ -35,6 +35,10 @@ Additionally, a live demo will feature the following demonstrations:
 * a new tag being pushed and the resulting new docker image
 * Google Cloud Platform microservice image classification
 
+# How to use:
+
+* a new commit pushed to any branch will trigger the doctests
+* a new tag in the form "v*.*" will trigger new builds of base-dockerfile and test-dockerfile being pushed to dockerhub, as well as new build and deployment of service-dockerfile in Google Cloud Run.
 
 # Setup
 
