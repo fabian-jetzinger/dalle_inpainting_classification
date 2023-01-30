@@ -7,6 +7,7 @@ from PIL import Image
 from flask import Flask, request
 from torchvision import transforms
 from urllib.request import urlopen
+from tqdm import tqdm
 
 app = Flask(__name__)
 
@@ -15,6 +16,8 @@ CIFAR_LABELS = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 
 
 @app.route('/')
 def index():
+    for i in tqdm(range(10)):
+        print("")
     return 'API Works 1!'
 
 
