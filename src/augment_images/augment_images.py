@@ -4,7 +4,7 @@ import cv2
 from os import listdir, makedirs
 from os.path import isfile, join, exists
 
-image_path = "images"
+image_path = "D:/Google Drive/FH/COV/dalle_inpainting_classification/images"
 dalle_path_name = "dalle_wolf_inpainting"
 bg_path_name = "real_background"
 wolf_path_name = "real_wolf"

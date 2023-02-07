@@ -6,44 +6,68 @@ train_split = 0.8
 
 base_dir = 'D:/Google Drive/FH/COV/dalle_inpainting_classification/'
 
-# '/images/real_background'
-# '/images/real_wolf'
-# '/images/dalle_wolf_inpainting'
+# 'real_background/'
+# 'real_wolf/'
+# 'dalle_wolf_inpainting/'
+# 'real_background_augment_and_origin/'
+# 'real_wolf_augment_and_origin/'
+# 'dalle_wolf_inpainting_augment_and_origin/'
 
 img_sources = base_dir + 'images/'
-source_backgrounds = img_sources + 'real_background/'
-source_wolves = img_sources + 'dalle_wolf_inpainting'
+sources_class1 = [img_sources + 'real_wolf_augment_and_origin/']
+sources_class2 = [img_sources + 'dalle_wolf_inpainting_augment_and_origin/']
+sources_class3 = [img_sources + 'real_background_augment_and_origin/']
 
 img_dest = base_dir + 'image_source/'
-dest_background_train = img_dest + 'train/background/'
-dest_background_val = img_dest + 'val/background/'
-dest_wolf_train = img_dest + 'train/wolf/'
-dest_wolf_val = img_dest + 'val/wolf/'
+dest_class1_train = img_dest + 'train/real_wolf/'
+dest_class1_val = img_dest + 'val/real_wolf/'
+dest_class2_train = img_dest + 'train/dalle_wolf/'
+dest_class2_val = img_dest + 'val/dalle_wolf/'
+dest_class3_train = img_dest + 'train/background/'
+dest_class3_val = img_dest + 'val/background/'
 
-for d in [dest_background_train,
-          dest_background_val,
-          dest_wolf_train,
-          dest_wolf_val]:
+for d in [dest_class1_train,
+          dest_class1_val,
+          dest_class2_train,
+          dest_class2_val,
+          dest_class3_train,
+          dest_class3_val]:
     os.makedirs(d)
 
-backgrounds = os.listdir(source_backgrounds)
-wolves = os.listdir(source_wolves)
-random.shuffle(backgrounds)
-random.shuffle(wolves)
+class1_train = {}
+class1_val = {}
+for src_cl1 in sources_class1:
+    files = os.listdir(src_cl1)
+    random.shuffle(files)
+    class1_train[src_cl1] = files[:int(len(files) * train_split)]
+    class1_val[src_cl1] = files[int(len(files) * train_split):]
 
-backgrounds_train = backgrounds[:int(len(backgrounds) * train_split)]
-backgrounds_val = backgrounds[int(len(backgrounds) * train_split):]
-wolves_train = wolves[:int(len(wolves) * train_split)]
-wolves_val = wolves[int(len(wolves) * train_split):]
+class2_train = {}
+class2_val = {}
+for src_cl2 in sources_class2:
+    files = os.listdir(src_cl2)
+    random.shuffle(files)
+    class2_train[src_cl2] = files[:int(len(files) * train_split)]
+    class2_val[src_cl2] = files[int(len(files) * train_split):]
+
+class3_train = {}
+class3_val = {}
+for src_cl3 in sources_class3:
+    files = os.listdir(src_cl3)
+    random.shuffle(files)
+    class3_train[src_cl3] = files[:int(len(files) * train_split)]
+    class3_val[src_cl3] = files[int(len(files) * train_split):]
 
 mapping = {
-    dest_background_train: (source_backgrounds, backgrounds_train),
-    dest_background_val: (source_backgrounds, backgrounds_val),
-    dest_wolf_train: (source_wolves, wolves_train),
-    dest_wolf_val: (source_wolves, wolves_val),
+    dest_class1_train: class1_train,
+    dest_class1_val: class1_val,
+    dest_class2_train: class2_train,
+    dest_class2_val: class2_val,
+    dest_class3_train: class3_train,
+    dest_class3_val: class3_val,
 }
 
-for dest, tup in mapping.items():
-    src, files = tup
-    for f in files:
-        shutil.copy(os.path.join(src, f), dest)
+for dest, filemap in mapping.items():
+    for src, files in filemap.items():
+        for f in files:
+            shutil.copy(os.path.join(src, f), dest)
